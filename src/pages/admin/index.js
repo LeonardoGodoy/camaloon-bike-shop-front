@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 
 
@@ -19,14 +19,13 @@ export default function App(props) {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-
-            <li>
-              <Link to="/admin/products">Products</Link>
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <NavLink className="menu__link menu__link--hover" to="/admin/products">Products</NavLink>
             </li>
-            <li>
-              <Link to="/admin/categories">Categories</Link>
+            <li class="menu__item">
+              <NavLink className="menu__link menu__link--hover" to="/admin/categories">Categories</NavLink>
             </li>
           </ul>
         </nav>

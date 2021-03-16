@@ -13,13 +13,14 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Customer</Link>
+        <nav class="menu__nav">
+          <ul class="menu__list">
+            <li class="menu__item">
+              <Link class="menu__link menu__link--hover"  to="/">Customer</Link>
             </li>
-            <li>
-              <Link to="/admin/">Admin</Link>
+
+            <li class="menu__item">
+              <Link class="menu__link menu__link--hover" to="/admin/">Admin</Link>
             </li>
           </ul>
         </nav>
