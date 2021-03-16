@@ -1,0 +1,21 @@
+.product-card {
+  cursor: pointer;
+
+  &__img {
+    width: 190px;
+    height: 190px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+}
+
+
+.product-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
