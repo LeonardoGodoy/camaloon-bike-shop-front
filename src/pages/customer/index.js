@@ -1,21 +1,26 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
+import OrderCreated from "./orders/success";
 import ProductsIndex from './products'
 import ProductsShow from './products/show'
 
+import Menu from "../../components/Menu";
+
 export default function App() {
   return (
-    <Router>
+    <div>
+      <Menu />
+
       <Switch>
-        <Route path='/products/:productId' component={ProductsShow} />
-        <Route path='/products' component={ProductsIndex} />
+        <Route exact path='/products/:productId' component={ProductsShow} />
+        <Route exact path='/products' component={ProductsIndex} />
+        <Route exact path='/orders/:orderId' component={OrderCreated} />
         <Route path="/" component={ProductsIndex} />
       </Switch>
-    </Router>
+    </div>
   );
 }

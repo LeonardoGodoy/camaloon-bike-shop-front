@@ -15,6 +15,10 @@
 
 .menu__item {
   margin: 0 .5rem;
+
+  &--right {
+    margin-left: auto;
+  }
 }
 
 .menu__link {
@@ -62,16 +66,6 @@
 }
 
 .menu__logo {
-  width: 45%;
-  justify-self: left;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  /* font-weight: 400; */
-  font-size: 1em;
-  margin: 0 .5rem;
+  width: 140px;
+  margin-left: 2rem;
 }
-
-.menu__logo strong {
-  color: var(--highlight-color);
-}
-
