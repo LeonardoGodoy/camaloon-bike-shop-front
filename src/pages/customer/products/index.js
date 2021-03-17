@@ -8,14 +8,14 @@ import Loader from './../../../components/Loader';
 function Product({ product }) {
   const history = useHistory();
 
-  const handleProductClick =({ id }) => {
+  const handleProductClick = ({ id }) => {
     let path = `/products/${id}`;
     history.push(path);
   }
 
   return (
     <div key={product.id} class='product-card' onClick={() => handleProductClick(product)}>
-      <img class="product-card__img" src="https://source.unsplash.com/190x190/?bycicle,bikeshop" alt="bike"/>
+      <img class="product-card__img" src="https://source.unsplash.com/190x190/?bicycle,bikeshop" alt="bike" />
       <p class="product-card__title">{product.title}</p>
     </div>
   );
@@ -33,7 +33,7 @@ function ProductsIndex() {
     content = (
       <div class='product-list'>
         {response.map(product => (
-          <Product product={product}/>
+          <Product product={product} />
         ))}
       </div>
     )
