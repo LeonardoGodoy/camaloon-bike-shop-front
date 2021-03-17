@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  Switch,
-  Route
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import OrderCreated from "./orders/success";
-import ProductsIndex from './products'
-import ProductsShow from './products/show'
+import ProductsIndex from "./products";
+import ProductsShow from "./products/show";
 
 import Menu from "../../components/Menu";
 
@@ -16,9 +13,9 @@ export default function App() {
       <Menu />
 
       <Switch>
-        <Route exact path='/products/:productId' component={ProductsShow} />
-        <Route exact path='/products' component={ProductsIndex} />
-        <Route exact path='/orders/:orderId' component={OrderCreated} />
+        <Route exact path="/products/:productId" component={ProductsShow} />
+        <Route exact path="/products" component={ProductsIndex} />
+        <Route exact path="/orders/:orderId" component={OrderCreated} />
         <Route path="/" component={ProductsIndex} />
       </Switch>
     </div>
