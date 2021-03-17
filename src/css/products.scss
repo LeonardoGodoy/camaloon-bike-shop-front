@@ -19,3 +19,64 @@
   gap: 2rem;
   margin-top: 2rem;
 }
+
+.product-form {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+  &__card {
+    display: flex;
+  }
+
+  &__img {
+    height: 500px;
+    width: 250px;
+  }
+
+  &__content {
+    margin-left: 2rem;
+  }
+
+  &__title {
+    margin-top: 4rem;
+  }
+
+  &__description {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.submit-order {
+  margin: 0 auto;
+}
+
+.btn--quantity {
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  color: var(--highlight-color);
+  border-color: var(--highlight-color);
+  background-color: inherit;
+
+  &:hover {
+    color: white;
+    background-color: var(--highlight-color);
+  }
+}
+
+.quantity-display {
+  padding-inline: .5em;
+  font-size: 1.5rem;
+}
+
+.order-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+
+  &__quantity {
+    margin-bottom: 1rem;
+  }
+}

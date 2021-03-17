@@ -1,0 +1,16 @@
+.field {
+  margin-block: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  text-transform: capitalize;
+}
+
+select {
+  padding: 5px 35px 5px 5px;
+  font-size: 1rem;
+  border: 1px solid #CCC;
+  height: 2em;
+}
