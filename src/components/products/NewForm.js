@@ -72,20 +72,20 @@ export default function NewForm({ categories }) {
           handleChange={handleCategoryChange}
         />
 
-        <div class="field">
+        <div className="field">
           <label>Title</label>
           <input
-            class="input"
+            className="input"
             onChange={handleTitleChange}
             type="text"
             value={title}
           />
         </div>
 
-        <div class="field">
+        <div className="field">
           <label>Description</label>
           <input
-            class="input"
+            className="input"
             onChange={handleDescriptionChange}
             type="text"
             value={description}
@@ -100,7 +100,7 @@ export default function NewForm({ categories }) {
 
         <input
           type="submit"
-          class="btn btn--main submit-order"
+          className="btn btn--main submit-order"
           value="Create product"
         />
       </form>

@@ -72,7 +72,7 @@ export default function PropertiesFields({ properties, setProperties }) {
         />
       ))}
 
-      <button class="btn" onClick={addProperty}>
+      <button className="btn" onClick={addProperty}>
         Add property
       </button>
     </div>
@@ -81,30 +81,30 @@ export default function PropertiesFields({ properties, setProperties }) {
 
 function PropertyField(props) {
   return (
-    <div class="field">
+    <div className="field">
       <label>Property {props.propertyIndex + 1}</label>
 
-      <div class="property-card">
+      <div className="property-card">
         <div>
           <input
-            class="input property-card__property-title"
+            className="input property-card__property-title"
             type="text"
             value={props.property.title}
             onChange={props.handlePropertyChange}
             placeholder="Product title"
           />
-          <button class="btn btn--main" onClick={props.removeProperty}>
+          <button className="btn btn--main" onClick={props.removeProperty}>
             Remove
           </button>
         </div>
 
-        <div class="field values-feild">
+        <div className="field values-feild">
           <label>Values</label>
-          <div class="property-card__values">
+          <div className="property-card__values">
             {props.property.values.map((value, valueIndex) => (
-              <div class="property-card__value">
+              <div className="property-card__value">
                 <input
-                  class="input property-card__value__input"
+                  className="input property-card__value__input"
                   type="text"
                   value={value}
                   onChange={(e) =>
@@ -114,7 +114,7 @@ function PropertyField(props) {
                 />
 
                 <button
-                  class="btn btn--main"
+                  className="btn btn--main"
                   onClick={(e) => props.removePropertyValue(e, valueIndex)}
                 >
                   x
@@ -124,7 +124,7 @@ function PropertyField(props) {
           </div>
 
           <div>
-            <button class="btn" onClick={props.addPropertyValue}>
+            <button className="btn" onClick={props.addPropertyValue}>
               Add value
             </button>
           </div>

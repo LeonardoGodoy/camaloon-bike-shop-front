@@ -2,7 +2,7 @@ export default function SelectCategory(props) {
   console.log("rendering category");
 
   return (
-    <div class="field">
+    <div className="field">
       <label>Category</label>
       <select value={props.value} onChange={props.handleChange}>
         <option value="select">Select</option>

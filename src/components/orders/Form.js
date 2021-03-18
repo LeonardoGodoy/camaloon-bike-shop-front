@@ -56,7 +56,7 @@ function PropertyInput({
   );
 
   return (
-    <div class="field">
+    <div className="field">
       <label>{property.title}</label>
 
       <select value={value} onChange={handleChange}>
@@ -137,7 +137,7 @@ function Form({ product }) {
       return (
         <input
           type="submit"
-          class="btn btn--main submit-order"
+          className="btn btn--main submit-order"
           value="Order now"
         />
       );
@@ -156,13 +156,13 @@ function Form({ product }) {
         />
       ))}
 
-      <div class="order-actions">
-        <div class="order-actions__quantity">
-          <button class="btn btn--quantity" onClick={decreaseQuantity}>
+      <div className="order-actions">
+        <div className="order-actions__quantity">
+          <button className="btn btn--quantity" onClick={decreaseQuantity}>
             -
           </button>
-          <span class="quantity-display">{quantity}</span>
-          <button class="btn btn--quantity" onClick={increaseQuantity}>
+          <span className="quantity-display">{quantity}</span>
+          <button className="btn btn--quantity" onClick={increaseQuantity}>
             +
           </button>
         </div>

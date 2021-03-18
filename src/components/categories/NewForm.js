@@ -44,10 +44,10 @@ export default function NewForm(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div class="field">
+        <div className="field">
           <label>Name</label>
           <input
-            class="input"
+            className="input"
             onChange={handleNameChange}
             type="text"
             value={name}
@@ -61,7 +61,7 @@ export default function NewForm(props) {
 
         <input
           type="submit"
-          class="btn btn--main submit-order"
+          className="btn btn--main submit-order"
           value="Create category"
         />
       </form>
