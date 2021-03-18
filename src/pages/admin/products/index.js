@@ -23,12 +23,12 @@ function ProductsIndex() {
           New product
         </Link>
 
-        <div class="admin-list">
+        <div className="admin-list">
           {response.map((product) => (
-            <div class="admin-list__item">
-              <div class="admin-list__content">{product.title}</div>
+            <div className="admin-list__item">
+              <div className="admin-list__content">{product.title}</div>
 
-              <div class="admin-list__actions admin-list__content">
+              <div className="admin-list__actions admin-list__content">
                 <Link className="btn" to={`/admin/products/${product.id}/edit`}>
                   Edit
                 </Link>
@@ -40,7 +40,7 @@ function ProductsIndex() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default ProductsIndex;

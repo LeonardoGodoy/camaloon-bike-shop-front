@@ -16,15 +16,15 @@ function Product({ product }) {
   return (
     <div
       key={product.id}
-      class="product-card"
+      className="product-card"
       onClick={() => handleProductClick(product)}
     >
       <img
-        class="product-card__img"
+        className="product-card__img"
         src={process.env.PUBLIC_URL + "/bike-card.jpg"}
         alt="bike"
       />
-      <p class="product-card__title">{product.title}</p>
+      <p className="product-card__title">{product.title}</p>
     </div>
   );
 }
@@ -39,7 +39,7 @@ function ProductsIndex() {
     content = <Loader />;
   } else {
     content = (
-      <div class="product-list">
+      <div className="product-list">
         {response.map((product) => (
           <Product product={product} />
         ))}
@@ -47,7 +47,7 @@ function ProductsIndex() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default ProductsIndex;

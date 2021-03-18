@@ -23,10 +23,10 @@ function CategoriesIndex() {
           New category
         </Link>
 
-        <div class="admin-list">
+        <div className="admin-list">
           {response.map((category) => (
-            <div class="admin-list__item">
-              <div class="admin-list__content">
+            <div className="admin-list__item">
+              <div className="admin-list__content">
                 {category.name}
               </div>
             </div>
@@ -36,7 +36,7 @@ function CategoriesIndex() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default CategoriesIndex;

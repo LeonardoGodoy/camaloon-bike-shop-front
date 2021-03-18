@@ -17,17 +17,17 @@ function Show() {
     content = <Loader />;
   } else {
     content = (
-      <div class="product-form">
-        <div class="product-form__card">
+      <div className="product-form">
+        <div className="product-form__card">
           <img
-            class="product-form__img"
+            className="product-form__img"
             src={process.env.PUBLIC_URL + "/bike.jpeg"}
             alt="bike"
           />
 
-          <div class="product-form__content">
-            <h1 class="product-form__title">{response.title}</h1>
-            <p class="product-form__description">{response.description}</p>
+          <div className="product-form__content">
+            <h1 className="product-form__title">{response.title}</h1>
+            <p className="product-form__description">{response.description}</p>
 
             <OrderForm product={response} />
           </div>
@@ -36,7 +36,7 @@ function Show() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default Show;

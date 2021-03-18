@@ -47,21 +47,21 @@ function Version({ product, version }) {
   };
 
   return (
-    <div class="admin-list__item">
+    <div className="admin-list__item">
       {version.property_combination.map((propertyValue) => (
-        <div class="admin-list__content">
+        <div className="admin-list__content">
           <strong>{propertyValue.property_title}</strong>
           <p>{propertyValue.value}</p>
         </div>
       ))}
 
-      <div class="admin-list__actions admin-list__content">
+      <div className="admin-list__actions admin-list__content">
         {version.enabled ? (
-          <button class="btn btn--main" onClick={disable}>
+          <button className="btn btn--main" onClick={disable}>
             Disable
           </button>
         ) : (
-          <button class="btn" onClick={enable}>
+          <button className="btn" onClick={enable}>
             Enable
           </button>
         )}
@@ -84,7 +84,7 @@ function Edit() {
     versionsList = <Loader />;
   } else if (versions) {
     versionsList = (
-      <div class="admin-list">
+      <div className="admin-list">
         {versions.map((version) => (
           <Version product={product} version={version} />
         ))}
@@ -110,7 +110,7 @@ function Edit() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default Edit;

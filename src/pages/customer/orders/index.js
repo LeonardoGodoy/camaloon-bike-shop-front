@@ -19,14 +19,14 @@ function OrdersIndex() {
       <div>
         <h1>Orders</h1>
 
-        <div class="admin-list">
+        <div className="admin-list">
           {orders.map((order) => (
-            <div class="admin-list__item">
-              <div class="admin-list__content">
+            <div className="admin-list__item">
+              <div className="admin-list__content">
                 <p><span>#</span>{order.id.substring(0, 8)}</p>
               </div>
 
-              <div class="admin-list__actions admin-list__content">
+              <div className="admin-list__actions admin-list__content">
                 <Link className="btn" to={`/orders/${order.id}`}>
                   Show
                 </Link>
@@ -38,7 +38,7 @@ function OrdersIndex() {
     );
   }
 
-  return <div class="page--center">{content}</div>;
+  return <div className="page--center">{content}</div>;
 }
 
 export default OrdersIndex;

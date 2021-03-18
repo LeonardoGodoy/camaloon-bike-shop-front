@@ -1,7 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import OrderCreated from "./orders/success";
+import OrderIndex from "./orders";
+import OrderShow from "./orders/show";
+// import OrderCreated from "./orders/success";
 import ProductsIndex from "./products";
 import ProductsShow from "./products/show";
 
@@ -15,7 +17,8 @@ export default function App() {
       <Switch>
         <Route exact path="/products/:productId" component={ProductsShow} />
         <Route exact path="/products" component={ProductsIndex} />
-        <Route exact path="/orders/:orderId" component={OrderCreated} />
+        <Route exact path="/orders/:orderId" component={OrderShow} />
+        <Route exact path="/orders" component={OrderIndex} />
         <Route path="/" component={ProductsIndex} />
       </Switch>
     </div>
