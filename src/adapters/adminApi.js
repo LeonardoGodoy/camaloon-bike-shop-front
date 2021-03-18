@@ -31,11 +31,32 @@ const createProduct = (props) => {
       category_id: props.categoryId,
       title: props.title,
       description: props.description,
-      properties: props.properties // title, values
+      properties: props.properties, // title, values
     }),
   };
 
   return { url, options };
 };
 
-export { fetchProducts, fetchProduct, fetchCategories, createProduct };
+const createCategory = (props) => {
+  const url = `${BASE_URL}/categories`;
+
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: props.name,
+      properties: props.properties, // title, values
+    }),
+  };
+
+  return { url, options };
+};
+
+export {
+  fetchProducts,
+  fetchProduct,
+  fetchCategories,
+  createProduct,
+  createCategory,
+};
