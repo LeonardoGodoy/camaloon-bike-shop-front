@@ -14,6 +14,20 @@ const fetchProduct = (productid) => {
   return { url, options };
 };
 
+const fetchOrders = () => {
+  const url = `${BASE_URL}/orders`;
+  const options = {};
+
+  return { url, options };
+};
+
+const fetchOrder = (orderId) => {
+  const url = `${BASE_URL}/orders/${orderId}`;
+  const options = {};
+
+  return { url, options };
+};
+
 const createOrder = (props) => {
   const url = `${BASE_URL}/orders`;
 
@@ -34,4 +48,4 @@ const createOrder = (props) => {
   return { url, options };
 };
 
-export { fetchProducts, fetchProduct, createOrder };
+export { fetchProducts, fetchProduct, fetchOrders, fetchOrder, createOrder };
