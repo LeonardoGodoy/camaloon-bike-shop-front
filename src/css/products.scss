@@ -80,3 +80,26 @@
     margin-bottom: 1rem;
   }
 }
+
+.property-card {
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  padding: 1rem;
+
+  &__property-title {
+    margin-right: 1rem;
+  }
+
+  &__values {
+    // margin-top: 1rem;
+  }
+
+  &__value {
+    margin-top: .5rem;
+
+    &__input {
+      margin-right: 1rem;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import ProductsIndex from "./products";
 import ProductsShow from "./products/show";
 import ProductsNew from "./products/new";
+import ProductsEdit from "./products/edit";
 
 import CategoriesIndex from "./categories";
 import CategoriesShow from "./categories/show";
@@ -18,6 +19,7 @@ export default function App(props) {
 
       <Switch>
         <Route path="/admin/products/new" component={ProductsNew} />
+        <Route path="/admin/products/:productId/edit" component={ProductsEdit} />
         <Route path="/admin/products/:productId" component={ProductsShow} />
         <Route path="/admin/products" component={ProductsIndex} />
         <Route path="/admin/categories/new" component={CategoriesNew} />
