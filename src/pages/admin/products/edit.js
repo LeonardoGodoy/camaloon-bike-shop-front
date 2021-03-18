@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
 import {
@@ -7,11 +8,8 @@ import {
   enableProductVersion,
   disableProductVersion,
 } from "./../../../adapters/adminApi";
+
 import Loader from "./../../../components/Loader";
-
-// import NewProductForm from "./../../../components/{product}s/NewForm";
-
-import { useParams } from "react-router-dom";
 
 function Version({ product, version }) {
   const enable = () => {};

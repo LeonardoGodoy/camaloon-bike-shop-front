@@ -1,6 +1,4 @@
-export default function PropertiesFields2({ properties, setProperties }) {
-  console.log("rendering props fields");
-
+export default function PropertiesFields({ properties, setProperties }) {
   const handlePropertyChange = (e, propertyIndex) => {
     const propertyTitle = e.target.value;
 
@@ -119,10 +117,11 @@ function PropertyField(props) {
           ))}
         </div>
 
-        <div></div>
-        <button class="btn" onClick={props.addPropertyValue}>
-          Add value
-        </button>
+        <div>
+          <button class="btn" onClick={props.addPropertyValue}>
+            Add value
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import React from "react";
-// import { useHistory } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
 import { fetchCategories } from "./../../../adapters/adminApi";
-import Loader from "./../../../components/Loader";
 
+import Loader from "./../../../components/Loader";
 import NewProductForm from "./../../../components/products/NewForm";
 
 function New() {
@@ -19,6 +18,7 @@ function New() {
     content = (
       <div>
         <h1>New Product</h1>
+
         <NewProductForm categories={response} />
       </div>
     );
@@ -27,4 +27,4 @@ function New() {
   return <div class="page--center">{content}</div>;
 }
 
-export default New
+export default New;

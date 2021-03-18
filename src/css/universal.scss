@@ -1,3 +1,5 @@
+@import './variables';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,38 +14,26 @@ code {
     monospace;
 }
 
-:root {
-  --highlight-color: rgb(230, 62, 57);
-  --error-color: #f02849;
-  --border-color: rgba(71, 71, 71, 0.2);
-  --strong-border-color: rgba(71, 71, 71, 0.4);
-  --light-gray: rgb(247, 247, 247);
-  --radius: 4px;
-}
-
-
 .page--center {
   margin: 0 auto;
   max-width: 1200px;
 }
 
-
-
 .btn {
   display: inline-block;
   font-size: 1rem;
   border-radius: var(--radius);
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
+  background-color: white;
   color: unset;
   text-decoration: none;
   padding: .6rem 1.2rem;
   text-align: center;
 }
 
-.btn:hover,
-.btn:focus {
-  color: black;
-  background-color: white;
+.btn:hover {
+  color: white;
+  background-color: var(--highlight-color);
   outline: none;
 }
 
@@ -53,15 +43,32 @@ code {
   background-color: var(--highlight-color);
 }
 
-.btn--main:hover,
-.btn--main:focus {
+.btn--main:hover {
   color: var(--highlight-color);
   background-color: unset;
 }
 
+.admin-list {
+  margin-top: 1rem;
 
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 0 .5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    min-height: 2.5rem;
 
-.btn--small {
-  // background-color: var(--highlight-color);
-  font-size: .9rem;
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  &__content {
+    padding-inline: .5rem;
+  }
+
+  &__actions {
+    margin-left: auto;
+  }
 }

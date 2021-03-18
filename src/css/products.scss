@@ -11,7 +11,6 @@
   }
 }
 
-
 .product-list {
   display: flex;
   flex-direction: row;
@@ -54,7 +53,7 @@
 
 .btn--quantity {
   font-size: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: var(--highlight-color);
   border-color: var(--highlight-color);
   background-color: inherit;
@@ -66,7 +65,7 @@
 }
 
 .quantity-display {
-  padding-inline: .5em;
+  padding-inline: 0.5em;
   font-size: 1.5rem;
 }
 
@@ -92,11 +91,11 @@
   }
 
   &__values {
-    // margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   &__value {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 
     &__input {
       margin-right: 1rem;

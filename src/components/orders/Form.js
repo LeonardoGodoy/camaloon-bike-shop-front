@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Loader from "../Loader";
 
-import { createOrder } from "./../../adapters/api";
+import { createOrder } from "../../adapters/api";
 
 function PropertyInput({
   properties,

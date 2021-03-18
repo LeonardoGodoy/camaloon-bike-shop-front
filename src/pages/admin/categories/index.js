@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
 import { fetchCategories } from "./../../../adapters/adminApi";
+
 import Loader from "./../../../components/Loader";
 
 function CategoriesIndex() {
@@ -15,23 +16,22 @@ function CategoriesIndex() {
     content = <Loader />;
   } else {
     content = (
-      <div class="">
-        <Link className="btn btn--main" to="/admin/categories/new">New category</Link>
+      <div>
+        <h1>Categories</h1>
 
-        <table>
-          <thead>
-            <th>
-              <td>Category name</td>
-            </th>
-          </thead>
-          <tbody>
-            {response.map((category) => (
-              <tr>
-                <td>{category.name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Link className="btn btn--main" to="/admin/categories/new">
+          New category
+        </Link>
+
+        <div class="admin-list">
+          {response.map((category) => (
+            <div class="admin-list__item">
+              <div class="admin-list__content">
+                {category.name}
+              </div>
+            </div>
+          ))}
+          </div>
       </div>
     );
   }
