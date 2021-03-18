@@ -14,6 +14,13 @@ const fetchProduct = (productid) => {
   return { url, options };
 };
 
+const fetchProductVersions = (productid) => {
+  const url = `${BASE_URL}/products/${productid}/product_versions`;
+  const options = {};
+
+  return { url, options, init: [] };
+};
+
 const fetchCategories = () => {
   const url = `${BASE_URL}/categories`;
   const options = {};
@@ -53,10 +60,33 @@ const createCategory = (props) => {
   return { url, options };
 };
 
+const enableProductVersion = (productid, versionId) => {
+  const url = `${BASE_URL}/products/${productid}/product_versions/${versionId}/enable`;
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  };
+
+  return { url, options };
+};
+
+const disableProductVersion = (productid, versionId) => {
+  const url = `${BASE_URL}/products/${productid}/product_versions/${versionId}/disable`;
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  };
+
+  return { url, options };
+};
+
 export {
   fetchProducts,
   fetchProduct,
+  fetchProductVersions,
   fetchCategories,
   createProduct,
   createCategory,
+  enableProductVersion,
+  disableProductVersion,
 };
