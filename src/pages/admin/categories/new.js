@@ -5,7 +5,7 @@ import NewCategoryForm from "./../../../components/categories/NewForm";
 function New() {
   return (
     <div class="page--center">
-      <h1>New Category</h1>
+      <h1>New category</h1>
 
       <NewCategoryForm />
     </div>

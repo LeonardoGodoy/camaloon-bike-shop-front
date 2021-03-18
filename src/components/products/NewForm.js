@@ -23,10 +23,7 @@ export default function NewForm({ categories }) {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
-          history.push(`/products/${result.id}/edit`);
-          // setIsLoaded(true);
-          // setResponse(result);
+          history.push(`/admin/products/${result.id}/edit`);
         },
         (error) => {
           console.log(error);
@@ -87,7 +84,7 @@ export default function NewForm({ categories }) {
 
         <div class="field">
           <label>Description</label>
-          <textarea
+          <input
             class="input"
             onChange={handleDescriptionChange}
             type="text"
@@ -96,13 +93,10 @@ export default function NewForm({ categories }) {
           />
         </div>
 
-        <div class="field">
-          <label>Properties</label>
-          <PropertiesFields
-            properties={properties}
-            setProperties={setProperties}
-          />
-        </div>
+        <PropertiesFields
+          properties={properties}
+          setProperties={setProperties}
+        />
 
         <input
           type="submit"

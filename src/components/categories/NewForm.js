@@ -21,9 +21,7 @@ export default function NewForm(props) {
       .then(
         (result) => {
           console.log(result);
-          history.push(`/categories`);
-          // setIsLoaded(true);
-          // setResponse(result);
+          history.push(`/admin/categories`);
         },
         (error) => {
           console.log(error);
@@ -56,13 +54,10 @@ export default function NewForm(props) {
           />
         </div>
 
-        <div class="field">
-          <label>Properties</label>
-          <PropertiesFields
-            properties={properties}
-            setProperties={setProperties}
-          />
-        </div>
+        <PropertiesFields
+          properties={properties}
+          setProperties={setProperties}
+        />
 
         <input
           type="submit"

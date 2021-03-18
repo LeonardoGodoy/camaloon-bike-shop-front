@@ -17,7 +17,7 @@ function New() {
   } else {
     content = (
       <div>
-        <h1>New Product</h1>
+        <h1>New product</h1>
 
         <NewProductForm categories={response} />
       </div>
