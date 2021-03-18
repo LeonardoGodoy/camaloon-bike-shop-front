@@ -1,35 +1,10 @@
-// fetch categories
-// select categories
-// render fields
-// add / remove fields
-// add / remove values
-// render edit product
-
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { createProduct } from "./../../adapters/adminApi";
 
 import PropertiesFields from "./../PropertiesFields";
-
-function SelectCategory(props) {
-  console.log("rendering category");
-
-  return (
-    <div class="field">
-      <label>Category</label>
-      <select value={props.value} onChange={props.handleChange}>
-        <option value="select">Select</option>
-
-        {props.categories.map((category) => (
-          <option key={category.id} value={category.id}>
-            {category.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
+import SelectCategory from "./../SelectCategory";
 
 export default function NewForm({ categories }) {
   const history = useHistory();
@@ -79,58 +54,6 @@ export default function NewForm({ categories }) {
     }
   };
 
-  const handlePropertyChange = (e, propertyIndex) => {
-    const propertyTitle = e.target.value;
-
-    const newProperies = properties.slice();
-    newProperies[propertyIndex].title = propertyTitle;
-    setProperties(newProperies);
-  };
-
-  const handlePropertyValueChange = (e, propertyIndex, valueIndex) => {
-    const value = e.target.value;
-
-    const newProperies = properties.slice();
-    const values = newProperies[propertyIndex].values;
-    values[valueIndex] = value;
-    setProperties(newProperies);
-  };
-
-  const addProperty = (e) => {
-    const newProperty = { title: "", values: [""] };
-
-    const newProperies = properties.slice();
-    newProperies.push(newProperty);
-    setProperties(newProperies);
-    e.preventDefault();
-  };
-
-  const addPropertyValue = (e, propertyIndex) => {
-    const newProperies = properties.slice();
-
-    const values = newProperies[propertyIndex].values;
-    values.push("");
-    setProperties(newProperies);
-    e.preventDefault();
-  };
-
-  const removeProperty = (e, propertyIndex) => {
-    const newProperies = properties.slice();
-
-    newProperies.splice(propertyIndex, 1);
-    setProperties(newProperies);
-    e.preventDefault();
-  };
-
-  const removePropertyValue = (e, propertyIndex, valueIndex) => {
-    const newProperies = properties.slice();
-
-    const values = newProperies[propertyIndex].values;
-    values.splice(valueIndex, 1);
-    setProperties(newProperies);
-    e.preventDefault();
-  };
-
   const handleTitleChange = (e) => {
     const value = e.target.value;
     setTitle(value);
@@ -177,17 +100,9 @@ export default function NewForm({ categories }) {
           <label>Properties</label>
           <PropertiesFields
             properties={properties}
-            handlePropertyChange={handlePropertyChange}
-            handlePropertyValueChange={handlePropertyValueChange}
-            removeProperty={removeProperty}
-            addPropertyValue={addPropertyValue}
-            removePropertyValue={removePropertyValue}
+            setProperties={setProperties}
           />
         </div>
-
-        <button class="btn" onClick={addProperty}>
-          Add property
-        </button>
 
         <input
           type="submit"
