@@ -33,7 +33,7 @@ export default function NewForm(props) {
     e.preventDefault();
   };
 
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState([{ title: '', values: ['']}]);
   const [name, setName] = useState("");
 
   const handleNameChange = (e) => {

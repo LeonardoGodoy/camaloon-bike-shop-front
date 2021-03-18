@@ -98,7 +98,7 @@ function PropertyField(props) {
           </button>
         </div>
 
-        <div class="field">
+        <div class="field values-feild">
           <label>Values</label>
           <div class="property-card__values">
             {props.property.values.map((value, valueIndex) => (
