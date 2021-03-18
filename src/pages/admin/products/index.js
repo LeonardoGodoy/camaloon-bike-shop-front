@@ -25,7 +25,7 @@ function ProductsIndex() {
 
         <div className="admin-list">
           {response.map((product) => (
-            <div className="admin-list__item">
+            <div key={product.id} className="admin-list__item">
               <div className="admin-list__content">{product.title}</div>
 
               <div className="admin-list__actions admin-list__content">

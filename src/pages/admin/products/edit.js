@@ -1,7 +1,7 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
+
 import {
   fetchProduct,
   fetchProductVersions,
@@ -48,8 +48,8 @@ function Version({ product, version }) {
 
   return (
     <div className="admin-list__item">
-      {version.property_combination.map((propertyValue) => (
-        <div className="admin-list__content">
+      {version.property_combination.map((propertyValue, i) => (
+        <div key={`${i}-${propertyValue}`} className="admin-list__content">
           <strong>{propertyValue.property_title}</strong>
           <p>{propertyValue.value}</p>
         </div>
@@ -75,6 +75,7 @@ function Edit() {
   const { isLoaded, response: product, error } = useFetch(
     fetchProduct(productId)
   );
+
   const { isLoaded: isVersionLoaded, response: versions } = useFetch(
     fetchProductVersions(productId)
   );
@@ -86,7 +87,7 @@ function Edit() {
     versionsList = (
       <div className="admin-list">
         {versions.map((version) => (
-          <Version product={product} version={version} />
+          <Version key={version.id} product={product} version={version} />
         ))}
       </div>
     );
