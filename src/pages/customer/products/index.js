@@ -21,7 +21,7 @@ function Product({ product }) {
     >
       <img
         class="product-card__img"
-        src="https://source.unsplash.com/190x190/?bicycle,bikeshop"
+        src={process.env.PUBLIC_URL + "/bike-card.jpg"}
         alt="bike"
       />
       <p class="product-card__title">{product.title}</p>
