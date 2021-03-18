@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-function useFetch({ url }) {
-  const [error, setError] = useState(null);
+function useFetch({ init, url, options }) {
+  const [error, setError] = useState(init || null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [response, setResponse] = useState([]);
 
-  useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
+  const execute = (options) => {
+    console.log("executing...", url);
+
+    fetch(url, options)
+      .then((res) => res.json())
       .then(
         (result) => {
           setIsLoaded(true);
@@ -17,10 +19,12 @@ function useFetch({ url }) {
           setIsLoaded(true);
           setError(error);
         }
-      )
-  }, [url])
+      );
+  };
 
-  return { error, isLoaded, response }
+  useEffect(() => execute(options), [url]);
+
+  return { error, isLoaded, response, execute };
 }
 
-export default useFetch
+export default useFetch;
