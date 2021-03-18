@@ -17,6 +17,8 @@ function Show() {
   } else {
     content = (
       <div>
+        <h1>Order #{orderId.substring(0, 8)}</h1>
+
         {(order.order_items || []).map((item) => (
           <div key={item.id}>
             {item.quantity}
