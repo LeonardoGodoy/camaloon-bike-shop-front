@@ -21,9 +21,12 @@ function OrdersIndex() {
 
         <div className="admin-list">
           {orders.map((order) => (
-            <div className="admin-list__item">
+            <div key={order.id} className="admin-list__item">
               <div className="admin-list__content">
-                <p><span>#</span>{order.id.substring(0, 8)}</p>
+                <p>
+                  <span>#</span>
+                  {order.id.substring(0, 8)}
+                </p>
               </div>
 
               <div className="admin-list__actions admin-list__content">

@@ -41,7 +41,7 @@ function ProductsIndex() {
     content = (
       <div className="product-list">
         {response.map((product) => (
-          <Product product={product} />
+          <Product key={product.id} product={product} />
         ))}
       </div>
     );
