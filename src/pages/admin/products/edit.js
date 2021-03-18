@@ -12,7 +12,22 @@ import {
 import Loader from "./../../../components/Loader";
 
 function Version({ product, version }) {
-  const enable = () => {};
+  const enable = () => {
+    const requestConfig = enableProductVersion(product.id, version.id);
+
+    fetch(requestConfig.url, requestConfig.options)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+          // update version state
+          // reload versions
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
 
   const disable = () => {
     const requestConfig = disableProductVersion(product.id, version.id);
@@ -32,19 +47,25 @@ function Version({ product, version }) {
   };
 
   return (
-    <div>
+    <div class="admin-list__item">
       {version.property_combination.map((propertyValue) => (
-        <div>
-          <label>{propertyValue.property_title}</label>
-          {propertyValue.value}
+        <div class="admin-list__content">
+          <strong>{propertyValue.property_title}</strong>
+          <p>{propertyValue.value}</p>
         </div>
       ))}
 
-      {version.enabled ? (
-        <button onClick={disable}>Disable</button>
-      ) : (
-        <button onClick={enable}>Enable</button>
-      )}
+      <div class="admin-list__actions admin-list__content">
+        {version.enabled ? (
+          <button class="btn btn--main" onClick={disable}>
+            Disable
+          </button>
+        ) : (
+          <button class="btn" onClick={enable}>
+            Enable
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -54,18 +75,21 @@ function Edit() {
   const { isLoaded, response: product, error } = useFetch(
     fetchProduct(productId)
   );
-  const {
-    isLoaded: isVersionLoaded,
-    response: versions,
-    error: versionError,
-    execute,
-  } = useFetch(fetchProductVersions(productId));
+  const { isLoaded: isVersionLoaded, response: versions } = useFetch(
+    fetchProductVersions(productId)
+  );
 
-  let x;
-  if (versions) {
-    x = versions.map((version) => (
-      <Version product={product} version={version} />
-    ));
+  let versionsList;
+  if (!isVersionLoaded) {
+    versionsList = <Loader />;
+  } else if (versions) {
+    versionsList = (
+      <div class="admin-list">
+        {versions.map((version) => (
+          <Version product={product} version={version} />
+        ))}
+      </div>
+    );
   }
 
   let content;
@@ -76,16 +100,12 @@ function Edit() {
   } else {
     content = (
       <div>
-        <h1>Edit Product {productId}</h1>
+        <h1>Edit product availability</h1>
 
         <p>{product.title}</p>
         <p>{product.description}</p>
 
-        {x}
-        {isVersionLoaded}
-
-        {/* <button onClick={(e) => (execute())}>Test</button> */}
-        {/* <NewProductForm categories={response} /> */}
+        {versionsList}
       </div>
     );
   }
