@@ -62,7 +62,7 @@ function PropertyInput({
       <select value={value} onChange={handleChange}>
         <option value="select">Select</option>
         {possible_values.map((value, i) => (
-          <option value={value}>{value}</option>
+          <option key={value} value={value}>{value}</option>
         ))}
       </select>
     </div>
@@ -143,6 +143,7 @@ function Form({ product }) {
       );
     }
   };
+
   return (
     <form onSubmit={handleSubmit}>
       {product.properties.map((property, i) => (

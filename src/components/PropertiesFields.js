@@ -58,6 +58,7 @@ export default function PropertiesFields({ properties, setProperties }) {
     <div>
       {properties.map((property, propertyIndex) => (
         <PropertyField
+          key={property.id || propertyIndex}
           propertyIndex={propertyIndex}
           property={property}
           handlePropertyChange={(e) => handlePropertyChange(e, propertyIndex)}
@@ -102,7 +103,7 @@ function PropertyField(props) {
           <label>Values</label>
           <div className="property-card__values">
             {props.property.values.map((value, valueIndex) => (
-              <div className="property-card__value">
+              <div key={value} className="property-card__value">
                 <input
                   className="input property-card__value__input"
                   type="text"
