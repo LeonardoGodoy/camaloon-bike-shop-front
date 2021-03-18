@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
-import { fetchProducts } from "./../../../adapters/api";
+import { fetchProducts } from "./../../../adapters/adminApi";
 import Loader from "./../../../components/Loader";
 
 function ProductsIndex() {
