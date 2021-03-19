@@ -21,7 +21,7 @@ export default function NewForm({ categories }) {
       title,
       description,
       properties,
-      category_id: categoryId,
+      categoryId,
     });
 
     fetch(requestConfig.url, requestConfig.options)
