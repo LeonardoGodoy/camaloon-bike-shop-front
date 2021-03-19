@@ -55,7 +55,7 @@ function PropertyInput({
       <label>{property.title}</label>
 
       <select value={value} onChange={handleChange}>
-        <option value="select">Select</option>
+        <option value="">Select</option>
         {possibleValues.map((value) => (
           <option key={value} value={value}>
             {value}
