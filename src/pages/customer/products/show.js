@@ -4,7 +4,7 @@ import useFetch from "./../../../hooks/useFetch";
 import { fetchProduct } from "./../../../adapters/api";
 
 import Loader from "./../../../components/Loader";
-import OrderForm from "./../../../components/orders/Form";
+import OrderForm from "./../../../components/orders/NewForm";
 
 function Show() {
   let { productId } = useParams();

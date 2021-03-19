@@ -1,75 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+
 import Loader from "../Loader";
+import PropertyInput from "./PropertyInput";
 
 import { createOrder } from "../../adapters/api";
 
-function PropertyInput({
-  properties,
-  property,
-  selectedProperties,
-  disabledVersions,
-  handleChange,
-}) {
-  const value = selectedProperties[property.id];
-
-  const findBlankProperty = (combination_target) => {
-    return properties.find((property) => !combination_target[property.id]);
-  };
-
-  const isCombinationAvailable = (combination_target) => {
-    return !disabledVersions.some(({ property_combination }) =>
-      property_combination.every(
-        (propertyValue) =>
-          combination_target[propertyValue.property_id] === propertyValue.value
-      )
-    );
-  };
-
-  const hasPossibleOptions = (combination_target) => {
-    const nextProperty = findBlankProperty(combination_target);
-
-    if (nextProperty) {
-      return nextProperty.values.some((value) =>
-        isValuePossible(nextProperty, value, combination_target)
-      );
-    } else {
-      return isCombinationAvailable(combination_target);
-    }
-  };
-
-  const isValuePossible = (property, value, prev_combination) => {
-    if (selectedProperties[property.id] === value) {
-      return true;
-    }
-
-    const combination_target = {
-      ...prev_combination,
-      [property.id]: value,
-    };
-
-    return hasPossibleOptions(combination_target);
-  };
-
-  const possible_values = property.values.filter((value) =>
-    isValuePossible(property, value, selectedProperties)
-  );
-
-  return (
-    <div className="field">
-      <label>{property.title}</label>
-
-      <select value={value} onChange={handleChange}>
-        <option value="select">Select</option>
-        {possible_values.map((value, i) => (
-          <option key={value} value={value}>{value}</option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
-function Form({ product }) {
+function NewForm({ product }) {
   const [selectedProperties, setSelectedProperties] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [isSubmiting, setIsSubmiting] = useState(false);
@@ -80,9 +17,9 @@ function Form({ product }) {
 
     event.preventDefault();
     const requestConfig = createOrder({
-      product_id: product.id,
-      properties_values: product.properties.map((property) => ({
-        property_id: property.id,
+      productId: product.id,
+      propertiesValues: product.properties.map((property) => ({
+        propertyId: property.id,
         value: selectedProperties[property.id],
       })),
       quantity: quantity,
@@ -174,4 +111,4 @@ function Form({ product }) {
   );
 }
 
-export default Form;
+export default NewForm;

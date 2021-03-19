@@ -38,8 +38,10 @@ const createOrder = (props) => {
     body: JSON.stringify({
       order_items: [
         {
-          product_id: props.product_id,
-          properties_values: props.properties_values,
+          product_id: props.productId,
+          properties_values: props.propertiesValues.map(
+            ({ propertyId, value }) => ({ value, property_id: propertyId })
+          ),
           quantity: props.quantity,
         },
       ],
