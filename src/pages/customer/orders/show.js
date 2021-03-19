@@ -21,8 +21,19 @@ function Show() {
 
         {(order.order_items || []).map((item) => (
           <div key={item.id}>
-            {item.quantity}
-            {item.product.title}
+            <h2>{item.product.title}</h2>
+
+            <div className="field">
+              <strong>Quantity</strong>
+              <p>{item.quantity}</p>
+            </div>
+
+            {item.product_version.property_combination.map((property) => (
+              <div key={property.id} className="field">
+                <strong>{property.property_title}</strong>
+                <p>{property.value}</p>
+              </div>
+            ))}
           </div>
         ))}
       </div>

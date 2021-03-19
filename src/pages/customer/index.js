@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 
 import OrderIndex from "./orders";
 import OrderShow from "./orders/show";
-// import OrderCreated from "./orders/success";
 import ProductsIndex from "./products";
 import ProductsShow from "./products/show";
 
