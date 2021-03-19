@@ -9,7 +9,7 @@ import ProductsShow from "./products/show";
 
 import Menu from "../../components/Menu";
 
-export default function App() {
+export default function CustomerIndex() {
   return (
     <div>
       <Menu />

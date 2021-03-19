@@ -1,3 +1,4 @@
+import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import useFetch from "./../../../hooks/useFetch";
@@ -70,11 +71,57 @@ function Version({ product, version }) {
   );
 }
 
+// const requestHandler = (method) => {
+//   fetch(url, options)
+//       .then((res) => res.json())
+//       .then(
+//         (result) => {
+//           setIsLoaded(true);
+//           setResponse(result);
+//         },
+//         (error) => {
+//           setIsLoaded(true);
+//           setError(error);
+//         }
+//       );
+// }
+
 function Edit() {
   const { productId } = useParams();
   const { isLoaded, response: product, error } = useFetch(
     fetchProduct(productId)
   );
+
+  // const [versions, setVersions] = useState([]);
+  // const { isLoaded: isVersionLoaded, executeRequest } = useRequestHandler();
+
+  // const [errorx, setErrorx] = useState(null);
+  // const [isVersionLoaded, setIsVersionLoaded] = useState(false);
+
+  // const executeRequest = async ({ url, options }) => {
+  //   console.log("useRequestHandler -> executing...", url);
+
+  //   setIsVersionLoaded(false);
+  //   try {
+  //     const response = await fetch(url, options);
+
+  //     return response.json();
+  //   } catch (err) {
+  //     setErrorx(err);
+  //   } finally {
+  //     setIsLoaded(true);
+  //   }
+  // };
+
+  // const load = useCallback(async () => {
+  //   const response = await executeRequest(fetchProductVersions(productId));
+
+  //   setVersions(response);
+  // }, [])
+
+  // useEffect(() => {
+  //   load().then();
+  // }, [load]);
 
   const { isLoaded: isVersionLoaded, response: versions } = useFetch(
     fetchProductVersions(productId)

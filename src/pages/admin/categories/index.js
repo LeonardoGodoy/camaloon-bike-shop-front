@@ -26,12 +26,10 @@ function CategoriesIndex() {
         <div className="admin-list">
           {response.map((category) => (
             <div key={category.id} className="admin-list__item">
-              <div className="admin-list__content">
-                {category.name}
-              </div>
+              <div className="admin-list__content">{category.name}</div>
             </div>
           ))}
-          </div>
+        </div>
       </div>
     );
   }

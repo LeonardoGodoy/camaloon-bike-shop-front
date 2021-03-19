@@ -10,14 +10,17 @@ import CategoriesNew from "./categories/new";
 
 import AdminMenu from "../../components/AdminMenu";
 
-export default function App(props) {
+export default function AdminIndex(props) {
   return (
     <div>
       <AdminMenu />
 
       <Switch>
         <Route path="/admin/products/new" component={ProductsNew} />
-        <Route path="/admin/products/:productId/edit" component={ProductsEdit} />
+        <Route
+          path="/admin/products/:productId/edit"
+          component={ProductsEdit}
+        />
         <Route path="/admin/products" component={ProductsIndex} />
         <Route path="/admin/categories/new" component={CategoriesNew} />
         <Route path="/admin/categories" component={CategoriesIndex} />
