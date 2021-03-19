@@ -9,11 +9,11 @@ import { createOrder } from "../../adapters/api";
 function NewForm({ product }) {
   const [selectedProperties, setSelectedProperties] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [isSubmiting, setIsSubmiting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const history = useHistory();
 
   const handleSubmit = (event) => {
-    setIsSubmiting(true);
+    setIsSubmitting(true);
 
     event.preventDefault();
     const requestConfig = createOrder({
@@ -31,14 +31,9 @@ function NewForm({ product }) {
         (result) => {
           console.log(result);
           history.push(`/orders/${result.id}`);
-          // setIsLoaded(true);
-          // setResponse(result);
         },
         (error) => {
-          console.log(error);
-          setIsSubmiting(false);
-          // setIsLoaded(true);
-          // setError(error);
+          setIsSubmitting(false);
         }
       );
   };
@@ -64,7 +59,7 @@ function NewForm({ product }) {
   };
 
   const submitAction = () => {
-    if (isSubmiting) {
+    if (isSubmitting) {
       return <Loader />;
     } else {
       return (
@@ -111,4 +106,4 @@ function NewForm({ product }) {
   );
 }
 
-export default NewForm
+export default NewForm;

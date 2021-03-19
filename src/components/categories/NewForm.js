@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+import Loader from "../Loader";
 import { createCategory } from "./../../adapters/adminApi";
-
 import PropertiesFields from "./../PropertiesFields";
 
 function NewForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [properties, setProperties] = useState([{ title: "", values: [""] }]);
   const [name, setName] = useState("");
 
   const history = useHistory();
 
   const handleSubmit = (e) => {
-    // setIsSubmiting(true);
-
     const requestConfig = createCategory({
       name,
       properties,
@@ -26,12 +25,7 @@ function NewForm() {
           console.log(result);
           history.push(`/admin/categories`);
         },
-        (error) => {
-          console.log(error);
-          // setIsSubmiting(false);
-          // setIsLoaded(true);
-          // setError(error);
-        }
+        (error) => {setIsSubmitting(false)}
       );
     e.preventDefault();
   };
@@ -39,6 +33,20 @@ function NewForm() {
   const handleNameChange = (e) => {
     const value = e.target.value;
     setName(value);
+  };
+
+  const submitAction = () => {
+    if (isSubmitting) {
+      return <Loader />;
+    }
+
+    return (
+      <input
+        type="submit"
+        className="btn btn--main submit-order"
+        value="Create category"
+      />
+    );
   };
 
   return (
@@ -59,14 +67,10 @@ function NewForm() {
           setProperties={setProperties}
         />
 
-        <input
-          type="submit"
-          className="btn btn--main submit-order"
-          value="Create category"
-        />
+        {submitAction()}
       </form>
     </div>
   );
 }
 
-export default NewForm
+export default NewForm;

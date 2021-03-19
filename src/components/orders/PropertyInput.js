@@ -66,4 +66,4 @@ function PropertyInput({
   );
 }
 
-export default PropertyInput
+export default PropertyInput;

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { createProduct } from "./../../adapters/adminApi";
 
+import Loader from "../Loader";
 import PropertiesFields from "./../PropertiesFields";
 import SelectCategory from "./../SelectCategory";
 
@@ -11,11 +12,12 @@ function NewForm({ categories }) {
   const [properties, setProperties] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState("");
 
   const history = useHistory();
 
   const handleSubmit = (e) => {
-    // setIsSubmiting(true);
+    setIsSubmitting(true);
 
     const requestConfig = createProduct({
       title,
@@ -31,10 +33,7 @@ function NewForm({ categories }) {
           history.push(`/admin/products/${result.id}/edit`);
         },
         (error) => {
-          console.log(error);
-          // setIsSubmiting(false);
-          // setIsLoaded(true);
-          // setError(error);
+          setIsSubmitting(false);
         }
       );
     e.preventDefault();
@@ -59,6 +58,20 @@ function NewForm({ categories }) {
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
     setDescription(value);
+  };
+
+  const submitAction = () => {
+    if (isSubmitting) {
+      return <Loader />;
+    }
+
+    return (
+      <input
+        type="submit"
+        className="btn btn--main submit-order"
+        value="Create product"
+      />
+    );
   };
 
   return (
@@ -96,14 +109,10 @@ function NewForm({ categories }) {
           setProperties={setProperties}
         />
 
-        <input
-          type="submit"
-          className="btn btn--main submit-order"
-          value="Create product"
-        />
+        {submitAction()}
       </form>
     </div>
   );
 }
 
-export default NewForm
+export default NewForm;
