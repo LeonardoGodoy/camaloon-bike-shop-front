@@ -5,7 +5,10 @@ import { createCategory } from "./../../adapters/adminApi";
 
 import PropertiesFields from "./../PropertiesFields";
 
-export default function NewForm(props) {
+export default function NewForm() {
+  const [properties, setProperties] = useState([{ title: "", values: [""] }]);
+  const [name, setName] = useState("");
+
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -32,9 +35,6 @@ export default function NewForm(props) {
       );
     e.preventDefault();
   };
-
-  const [properties, setProperties] = useState([{ title: '', values: ['']}]);
-  const [name, setName] = useState("");
 
   const handleNameChange = (e) => {
     const value = e.target.value;

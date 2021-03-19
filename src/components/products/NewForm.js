@@ -7,6 +7,11 @@ import PropertiesFields from "./../PropertiesFields";
 import SelectCategory from "./../SelectCategory";
 
 export default function NewForm({ categories }) {
+  const [categoryId, setCategoryId] = useState("select");
+  const [properties, setProperties] = useState([]);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -35,11 +40,6 @@ export default function NewForm({ categories }) {
     e.preventDefault();
   };
 
-  const [categoryId, setCategoryId] = useState("select");
-  const [properties, setProperties] = useState([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-
   const handleCategoryChange = (e) => {
     const categoryId = e.target.value;
     setCategoryId(categoryId);
@@ -60,8 +60,6 @@ export default function NewForm({ categories }) {
     const value = e.target.value;
     setDescription(value);
   };
-
-  console.log("rendering form");
 
   return (
     <div>

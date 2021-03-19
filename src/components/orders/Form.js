@@ -114,10 +114,6 @@ function Form({ product }) {
     setSelectedProperties(newSelectedProperties);
   };
 
-  if (!product.properties) {
-    return <div />;
-  }
-
   const increaseQuantity = (e) => {
     setQuantity(quantity + 1);
     e.preventDefault();
@@ -143,6 +139,10 @@ function Form({ product }) {
       );
     }
   };
+
+  if (!product.properties) {
+    return <div />;
+  }
 
   return (
     <form onSubmit={handleSubmit}>

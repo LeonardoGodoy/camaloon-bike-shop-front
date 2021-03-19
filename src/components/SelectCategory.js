@@ -1,6 +1,4 @@
 export default function SelectCategory(props) {
-  console.log("rendering category");
-
   return (
     <div className="field">
       <label>Category</label>

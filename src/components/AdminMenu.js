@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 
-import { ReactComponent as Logo } from '../assets/logo.svg';
+import { ReactComponent as Logo } from "../assets/logo.svg";
 
 function AdminMenu() {
   return (
@@ -12,14 +12,26 @@ function AdminMenu() {
           </div>
 
           <li className="menu__item">
-            <NavLink className="menu__link menu__link--hover" to="/admin/products">Products</NavLink>
+            <NavLink
+              className="menu__link menu__link--hover"
+              to="/admin/products"
+            >
+              Products
+            </NavLink>
           </li>
           <li className="menu__item">
-            <NavLink className="menu__link menu__link--hover" to="/admin/categories">Categories</NavLink>
+            <NavLink
+              className="menu__link menu__link--hover"
+              to="/admin/categories"
+            >
+              Categories
+            </NavLink>
           </li>
 
           <li className="menu__item menu__item--right">
-            <Link className="menu__link menu__link--hover" to="/">Access as Customer</Link>
+            <Link className="menu__link menu__link--hover" to="/">
+              Access as Customer
+            </Link>
           </li>
         </ul>
       </nav>
@@ -27,4 +39,4 @@ function AdminMenu() {
   );
 }
 
-export default AdminMenu
+export default AdminMenu;

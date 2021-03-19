@@ -54,6 +54,7 @@ export default function PropertiesFields({ properties, setProperties }) {
   if (!properties) {
     return <div></div>;
   }
+
   return (
     <div>
       {properties.map((property, propertyIndex) => (
