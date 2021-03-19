@@ -21,7 +21,7 @@ function PropertyField(props) {
           <label>Values</label>
           <div className="property-card__values">
             {props.property.values.map((value, valueIndex) => (
-              <div key={value} className="property-card__value">
+              <div key={valueIndex} className="property-card__value">
                 <input
                   className="input property-card__value__input"
                   type="text"
