@@ -1,44 +1,45 @@
-const BASE_URL = "http://localhost:3030/api/v1/admin";
+const baseUrl = `${process.env.REACT_APP_API_URL}/api/v1/admin`;
+const defaultHeaders = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+const defaultOptions = {};
 
 const fetchProducts = () => {
-  const url = `${BASE_URL}/products`;
-  const options = {};
+  const url = `${baseUrl}/products`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const fetchProduct = (productid) => {
-  const url = `${BASE_URL}/products/${productid}`;
-  const options = {};
+  const url = `${baseUrl}/products/${productid}`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const fetchProductVersions = (productid) => {
-  const url = `${BASE_URL}/products/${productid}/product_versions`;
-  const options = {};
+  const url = `${baseUrl}/products/${productid}/product_versions`;
 
-  return { url, options, init: [] };
+  return { url, options: defaultOptions };
 };
 
 const fetchCategories = () => {
-  const url = `${BASE_URL}/categories`;
-  const options = {};
+  const url = `${baseUrl}/categories`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const createProduct = (props) => {
-  const url = `${BASE_URL}/products`;
+  const url = `${baseUrl}/products`;
 
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: defaultHeaders,
     body: JSON.stringify({
       category_id: props.categoryId,
       title: props.title,
       description: props.description,
-      properties: props.properties, // title, values
+      properties: props.properties,
     }),
   };
 
@@ -46,14 +47,14 @@ const createProduct = (props) => {
 };
 
 const createCategory = (props) => {
-  const url = `${BASE_URL}/categories`;
+  const url = `${baseUrl}/categories`;
 
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: defaultHeaders,
     body: JSON.stringify({
       name: props.name,
-      properties: props.properties, // title, values
+      properties: props.properties,
     }),
   };
 
@@ -61,20 +62,20 @@ const createCategory = (props) => {
 };
 
 const enableProductVersion = (productid, versionId) => {
-  const url = `${BASE_URL}/products/${productid}/product_versions/${versionId}/enable`;
+  const url = `${baseUrl}/products/${productid}/product_versions/${versionId}/enable`;
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: defaultHeaders,
   };
 
   return { url, options };
 };
 
 const disableProductVersion = (productid, versionId) => {
-  const url = `${BASE_URL}/products/${productid}/product_versions/${versionId}/disable`;
+  const url = `${baseUrl}/products/${productid}/product_versions/${versionId}/disable`;
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: defaultHeaders,
   };
 
   return { url, options };

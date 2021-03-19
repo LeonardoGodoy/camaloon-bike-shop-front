@@ -1,39 +1,40 @@
-const BASE_URL = "http://localhost:3030/api/v1";
+const baseUrl = `${process.env.REACT_APP_API_URL}/api/v1`;
+const defaultHeaders = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+const defaultOptions = {};
 
 const fetchProducts = () => {
-  const url = `${BASE_URL}/products`;
-  const options = {};
+  const url = `${baseUrl}/products`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const fetchProduct = (productid) => {
-  const url = `${BASE_URL}/products/${productid}`;
-  const options = {};
+  const url = `${baseUrl}/products/${productid}`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const fetchOrders = () => {
-  const url = `${BASE_URL}/orders`;
-  const options = {};
+  const url = `${baseUrl}/orders`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const fetchOrder = (orderId) => {
-  const url = `${BASE_URL}/orders/${orderId}`;
-  const options = {};
+  const url = `${baseUrl}/orders/${orderId}`;
 
-  return { url, options };
+  return { url, options: defaultOptions };
 };
 
 const createOrder = (props) => {
-  const url = `${BASE_URL}/orders`;
+  const url = `${baseUrl}/orders`;
 
   const options = {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: defaultHeaders,
     body: JSON.stringify({
       order_items: [
         {
