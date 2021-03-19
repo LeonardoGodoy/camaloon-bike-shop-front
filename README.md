@@ -6,6 +6,12 @@ You can check the [system description](https://drive.google.com/file/d/1scSCrF8Y
 
 To read more about the project structure, you can access the [API project](https://github.com/LeonardoGodoy/camaloon-bike-shop-api).
 
+### TODO list
+
+- Validation handling on creation
+  - categories
+  - products
+  - orders
 ### Setup instructons
 * run development server
 
