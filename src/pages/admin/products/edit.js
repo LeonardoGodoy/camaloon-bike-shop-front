@@ -6,70 +6,10 @@ import useFetch from "./../../../hooks/useFetch";
 import {
   fetchProduct,
   fetchProductVersions,
-  enableProductVersion,
-  disableProductVersion,
 } from "./../../../adapters/adminApi";
 
 import Loader from "./../../../components/Loader";
-
-function Version({ product, version }) {
-  const enable = () => {
-    const requestConfig = enableProductVersion(product.id, version.id);
-
-    fetch(requestConfig.url, requestConfig.options)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          // update version state
-          // reload versions
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  };
-
-  const disable = () => {
-    const requestConfig = disableProductVersion(product.id, version.id);
-
-    fetch(requestConfig.url, requestConfig.options)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          // update version state
-          // reload versions
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  };
-
-  return (
-    <div className="admin-list__item">
-      {version.property_combination.map((propertyValue, i) => (
-        <div key={`${i}-${propertyValue}`} className="admin-list__content">
-          <strong>{propertyValue.property_title}</strong>
-          <p>{propertyValue.value}</p>
-        </div>
-      ))}
-
-      <div className="admin-list__actions admin-list__content">
-        {version.enabled ? (
-          <button className="btn btn--main" onClick={disable}>
-            Disable
-          </button>
-        ) : (
-          <button className="btn" onClick={enable}>
-            Enable
-          </button>
-        )}
-      </div>
-    </div>
-  );
-}
+import VersionContent from "./../../../components/product_versions/VersionContent";
 
 // const requestHandler = (method) => {
 //   fetch(url, options)
@@ -134,7 +74,11 @@ function Edit() {
     versionsList = (
       <div className="admin-list">
         {versions.map((version) => (
-          <Version key={version.id} product={product} version={version} />
+          <VersionContent
+            key={version.id}
+            product={product}
+            version={version}
+          />
         ))}
       </div>
     );
