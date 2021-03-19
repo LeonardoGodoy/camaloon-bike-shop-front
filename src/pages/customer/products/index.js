@@ -1,33 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-
 import useFetch from "./../../../hooks/useFetch";
 import { fetchProducts } from "./../../../adapters/api";
+
 import Loader from "./../../../components/Loader";
-
-function Product({ product }) {
-  const history = useHistory();
-
-  const handleProductClick = ({ id }) => {
-    let path = `/products/${id}`;
-    history.push(path);
-  };
-
-  return (
-    <div
-      key={product.id}
-      className="product-card"
-      onClick={() => handleProductClick(product)}
-    >
-      <img
-        className="product-card__img"
-        src={process.env.PUBLIC_URL + "/bike-card.jpg"}
-        alt="bike"
-      />
-      <p className="product-card__title">{product.title}</p>
-    </div>
-  );
-}
+import ProductCard from "./../../../components/products/ProductCard";
 
 function ProductsIndex() {
   const { isLoaded, response, error } = useFetch(fetchProducts());
@@ -41,7 +17,7 @@ function ProductsIndex() {
     content = (
       <div className="product-list">
         {response.map((product) => (
-          <Product key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     );
