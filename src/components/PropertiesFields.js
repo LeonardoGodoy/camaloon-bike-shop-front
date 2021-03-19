@@ -76,7 +76,7 @@ function PropertiesFields({ properties, setProperties }) {
         />
       ))}
 
-      <button className="btn" onClick={addProperty}>
+      <button className="btn btn--add-property" onClick={addProperty}>
         Add property
       </button>
     </div>

@@ -41,6 +41,10 @@ code {
   outline: none;
 }
 
+.btn:focus {
+  outline-color: var(--highlight-color);
+}
+
 .btn--main {
   color: white;
   border-color: var(--highlight-color);
