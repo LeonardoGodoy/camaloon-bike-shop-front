@@ -6,7 +6,7 @@ import { createProduct } from "./../../adapters/adminApi";
 import PropertiesFields from "./../PropertiesFields";
 import SelectCategory from "./../SelectCategory";
 
-export default function NewForm({ categories }) {
+function NewForm({ categories }) {
   const [categoryId, setCategoryId] = useState("select");
   const [properties, setProperties] = useState([]);
   const [title, setTitle] = useState("");
@@ -105,3 +105,5 @@ export default function NewForm({ categories }) {
     </div>
   );
 }
+
+export default NewForm

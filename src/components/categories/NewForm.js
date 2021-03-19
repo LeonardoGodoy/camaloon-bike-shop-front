@@ -5,7 +5,7 @@ import { createCategory } from "./../../adapters/adminApi";
 
 import PropertiesFields from "./../PropertiesFields";
 
-export default function NewForm() {
+function NewForm() {
   const [properties, setProperties] = useState([{ title: "", values: [""] }]);
   const [name, setName] = useState("");
 
@@ -68,3 +68,5 @@ export default function NewForm() {
     </div>
   );
 }
+
+export default NewForm

@@ -1,4 +1,4 @@
-export default function PropertyInput({
+function PropertyInput({
   properties,
   property,
   selectedProperties,
@@ -65,3 +65,5 @@ export default function PropertyInput({
     </div>
   );
 }
+
+export default PropertyInput

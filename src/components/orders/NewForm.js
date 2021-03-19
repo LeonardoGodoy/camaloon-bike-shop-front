@@ -111,4 +111,4 @@ function NewForm({ product }) {
   );
 }
 
-export default NewForm;
+export default NewForm

@@ -9,7 +9,7 @@ import ProductsShow from "./products/show";
 
 import Menu from "../../components/Menu";
 
-export default function CustomerIndex() {
+function CustomerIndex() {
   return (
     <div>
       <Menu />
@@ -24,3 +24,5 @@ export default function CustomerIndex() {
     </div>
   );
 }
+
+export default CustomerIndex

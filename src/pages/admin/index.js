@@ -10,7 +10,7 @@ import CategoriesNew from "./categories/new";
 
 import AdminMenu from "../../components/AdminMenu";
 
-export default function AdminIndex(props) {
+function AdminIndex(props) {
   return (
     <div>
       <AdminMenu />
@@ -29,3 +29,5 @@ export default function AdminIndex(props) {
     </div>
   );
 }
+
+export default AdminIndex;

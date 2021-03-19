@@ -1,4 +1,4 @@
-export default function PropertiesFields({ properties, setProperties }) {
+function PropertiesFields({ properties, setProperties }) {
   const handlePropertyChange = (e, propertyIndex) => {
     const propertyTitle = e.target.value;
 
@@ -135,3 +135,5 @@ function PropertyField(props) {
     </div>
   );
 }
+
+export default PropertiesFields

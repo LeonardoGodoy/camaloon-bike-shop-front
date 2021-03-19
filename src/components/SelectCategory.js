@@ -1,4 +1,4 @@
-export default function SelectCategory(props) {
+function SelectCategory(props) {
   return (
     <div className="field">
       <label>Category</label>
@@ -14,3 +14,5 @@ export default function SelectCategory(props) {
     </div>
   );
 }
+
+export default SelectCategory
