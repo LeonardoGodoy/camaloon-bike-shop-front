@@ -3,7 +3,7 @@ import {
   disableProductVersion,
 } from "./../../adapters/adminApi";
 
-function VersionContent({ product, version }) {
+function VersionContent({ product, version, replaceVersion }) {
   const enable = () => {
     const requestConfig = enableProductVersion(product.id, version.id);
 
@@ -11,9 +11,7 @@ function VersionContent({ product, version }) {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
-          // update version state
-          // reload versions
+          replaceVersion(result)
         },
         (error) => {
           console.log(error);
@@ -28,9 +26,7 @@ function VersionContent({ product, version }) {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
-          // update version state
-          // reload versions
+          replaceVersion(result)
         },
         (error) => {
           console.log(error);

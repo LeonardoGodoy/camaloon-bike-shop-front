@@ -11,61 +11,41 @@ import {
 import Loader from "./../../../components/Loader";
 import VersionContent from "./../../../components/product_versions/VersionContent";
 
-// const requestHandler = (method) => {
-//   fetch(url, options)
-//       .then((res) => res.json())
-//       .then(
-//         (result) => {
-//           setIsLoaded(true);
-//           setResponse(result);
-//         },
-//         (error) => {
-//           setIsLoaded(true);
-//           setError(error);
-//         }
-//       );
-// }
-
 function Edit() {
   const { productId } = useParams();
   const { isLoaded, response: product, error } = useFetch(
     fetchProduct(productId)
   );
 
-  // const [versions, setVersions] = useState([]);
-  // const { isLoaded: isVersionLoaded, executeRequest } = useRequestHandler();
+  const [versionError, setVersionError] = useState(null);
+  const [isVersionLoaded, setVersionLoaded] = useState(false);
+  const [versions, setVersions] = useState([]);
 
-  // const [errorx, setErrorx] = useState(null);
-  // const [isVersionLoaded, setIsVersionLoaded] = useState(false);
+  useEffect(() => {
+    executeRequest();
+  }, []);
 
-  // const executeRequest = async ({ url, options }) => {
-  //   console.log("useRequestHandler -> executing...", url);
+  const executeRequest = async () => {
+    const config = fetchProductVersions(productId);
 
-  //   setIsVersionLoaded(false);
-  //   try {
-  //     const response = await fetch(url, options);
+    try {
+      await fetch(config.url, config.options)
+        .then((response) => response.json())
+        .then((response) => setVersions(response));
+    } catch (err) {
+      setVersionError(err);
+    } finally {
+      setVersionLoaded(true);
+    }
+  };
 
-  //     return response.json();
-  //   } catch (err) {
-  //     setErrorx(err);
-  //   } finally {
-  //     setIsLoaded(true);
-  //   }
-  // };
-
-  // const load = useCallback(async () => {
-  //   const response = await executeRequest(fetchProductVersions(productId));
-
-  //   setVersions(response);
-  // }, [])
-
-  // useEffect(() => {
-  //   load().then();
-  // }, [load]);
-
-  const { isLoaded: isVersionLoaded, response: versions } = useFetch(
-    fetchProductVersions(productId)
-  );
+  const replaceVersion = (version, versionIndex) => {
+    console.log(version);
+    console.log(versionIndex);
+    const newVersions = versions.slice();
+    newVersions[versionIndex] = version;
+    setVersions(newVersions);
+  };
 
   let versionsList;
   if (!isVersionLoaded) {
@@ -73,11 +53,12 @@ function Edit() {
   } else if (versions) {
     versionsList = (
       <div className="admin-list">
-        {versions.map((version) => (
+        {versions.map((version, i) => (
           <VersionContent
             key={version.id}
             product={product}
             version={version}
+            replaceVersion={(e) => replaceVersion(e, i)}
           />
         ))}
       </div>
