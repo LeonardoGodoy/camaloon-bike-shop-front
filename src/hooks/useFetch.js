@@ -22,7 +22,7 @@ function useFetch({ init, url, options }) {
       );
   };
 
-  useEffect(() => execute(options), [url]);
+  useEffect(() => execute(options), []);
 
   return { error, isLoaded, response, execute };
 }
